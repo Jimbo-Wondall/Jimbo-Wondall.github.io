@@ -1,4 +1,4 @@
-const canvas = document.getElementById('tester-canvas')
+const canvas = document.getElementById('gamewindow')
 const canvasContext = canvas.getContext('2d')
 
 let playerHeight = 20;
@@ -9,6 +9,13 @@ let velocityX = 0;
 let accelerationX = 0;
 let playerY = canvas.height / 2;
 let velocityY = 0;
+let accelerationY = 0;
+let onGround = false;
+
+let upArrow = false;
+let downArrow = false;
+let leftArrow = false;
+let rightArrow = false;
 
 window.requestAnimationFrame(gameLoop);
 
@@ -19,47 +26,52 @@ function gameLoop() {
 
 window.onkeydown = function (e){
     switch(e.keyCode){
-        case 37: 
-            accelerationX = -1;
-            break;
-        case 38: 
-            velocityY = -10;
-            break;
-        case 39: 
-            accelerationX = 1;
-            break;
-        case 40: 
-            break;
+        case 37: leftArrow = true; break;
+        case 38: upArrow = true; break;
+        case 39: rightArrow = true; break;
+        case 40: downArrow = true; break;
     }
 }
 window.onkeyup = function (e){
     switch(e.keyCode){
-        case 37: 
-            accelerationX = 0;
-            break;
-        case 38: 
-            break;
-        case 39: 
-            accelerationX = 0;
-            break;
-        case 40: 
-            break;
+        case 37: leftArrow = false; break;
+        case 38: upArrow = false; break;
+        case 39: rightArrow = false; break;
+        case 40: downArrow = false; break;
     }
 }
 
 function update(){
-        velocityX += accelerationX;
-        velocityX *= 0.9
+    if(playerY > canvas.height - playerHeight) {
+        playerY = canvas.height - playerHeight;
+        velocityY = 0;
+        onGround = true;
+    }
 
-        playerX += velocityX;
-        if(playerY >= canvas.height - playerHeight && velocityY != -10) {
-            playerY = canvas.height - playerHeight;
-            velocityY = 0;
+    accelerationX = 0;
+    if(rightArrow) accelerationX++;
+    if(leftArrow) accelerationX--;
+
+    accelerationY = 1;
+    if(upArrow){
+        accelerationY = 0.5;
+        if(onGround){
+            velocityY = -10
+            onGround = false;
         }
-        else{
-            playerY += velocityY++;
-        }
-        drawPlayer();
+    }
+    if (downArrow){
+        accelerationY = 1.5;
+    }
+
+    velocityX += accelerationX;
+    velocityX *= 0.9
+    playerX += velocityX;
+    if(!onGround){
+        velocityY += accelerationY;
+        playerY += velocityY;
+    }
+    drawPlayer();
 }
 
 function canvasSize(){
