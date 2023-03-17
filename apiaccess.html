@@ -3,21 +3,27 @@
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
-      integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
     <script type="text/javascript" src="scripts/api-commands.js"></script>
     <link rel="stylesheet" href="css/style.css" />
     <script type="module" src="scripts/map.js"></script>
     <title>Jack Swain | Portfolio</title>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <link
+      href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <script>
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      (window.dataLayer = window.dataLayer || []),
+        gtag("js", new Date()),
+        gtag("config", "UA-108415987-1");
+    </script>
   </head>
-
   <body>
     <div class="navbar">
       <div class="container flex">
@@ -32,13 +38,97 @@
         </nav>
       </div>
     </div>
-    <div>
-      <ul>
-        <li><input type="button" onclick="GetAll()" value="Display" /></li>
-        <li>
-          <input type="button" onclick="CreateNewUser()" value="New User" />
-        </li>
-      </ul>
+
+    <div class="tab-container">
+      <div class="row">
+        <div class="col-md-2">
+          <ul class="tab-list">
+            <li><a href="#tab1" class="active">Tab 1</a></li>
+            <li><a href="#tab2">Tab 2</a></li>
+            <li><a href="#tab3">Tab 3</a></li>
+          </ul>
+        </div>
+        <div class="col-md-6">
+          <div id="tab1" class="tab active">
+            <h3>Heading<small> Subtext</small></h3>
+            <form class="container">
+              <fieldset class="form-group">
+                <label>Username:</label
+                ><input
+                  type="text"
+                  placeholder="placeholder"
+                  class="form-control"
+                  id="text1"
+                  value=""
+                /><small class="form-text text-muted"
+                  >We'll never share your email with anyone else.</small
+                >
+              </fieldset>
+              <fieldset class="form-group">
+                <label>Email:</label
+                ><input
+                  type="text"
+                  placeholder="placeholder"
+                  class="form-control"
+                  id="text2"
+                  value=""
+                /><small class="form-text text-muted"
+                  >Password must be at least 8 characters long</small
+                >
+              </fieldset>
+              <fieldset class="form-group">
+                <label>Permission Level:</label
+                ><select class="form-control custom-select">
+                  <option value="1">Guest</option>
+                  <option value="2">Student</option>
+                  <option value="3">Teacher</option>
+                  <option value="4">Admin</option></select
+                ><small class="form-text text-muted"
+                  >Register your new account</small
+                >
+              </fieldset>
+              <fieldset class="form-group">
+                <label>Submit request as user:</label
+                ><select class="form-control custom-select">
+                  <option value="1">JackSwain - Guest</option>
+                  <option value="2">JackSwain - Admin</option></select
+                ><small class="form-text text-muted"
+                  >Register your new account</small
+                >
+              </fieldset>
+            </form>
+          </div>
+          <div id="tab2" class="tab col-md-6">
+            <h2>Tab 2 Content</h2>
+            <p>Sample Text 2</p>
+          </div>
+          <div id="tab3" class="tab col-md-6">
+            <h2>Tab 3 Content</h2>
+            <p>Sample Text 3</p>
+          </div>
+        </div>
+        <div class="col-md-4"></div>
+      </div>
     </div>
+
+    <script>
+      const tabLinks = document.querySelectorAll(".tab-list li a");
+      const tabContents = document.querySelectorAll(".tab");
+
+      tabLinks.forEach((link) => {
+        link.addEventListener("click", (e) => {
+          e.preventDefault();
+          const id = link.getAttribute("href").replace("#", "");
+          tabContents.forEach((tab) => {
+            tab.classList.remove("active");
+          });
+          tabLinks.forEach((link) => {
+            link.classList.remove("active");
+          });
+          document.getElementById(id).classList.add("active");
+          link.classList.add("active");
+        });
+      });
+    </script>
   </body>
 </html>

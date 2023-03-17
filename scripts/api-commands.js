@@ -1,4 +1,5 @@
-const baseURL = 'https://weatherdatawebapi.azurewebsites.net/api';
+//const baseURL = 'https://weatherdatawebapi.azurewebsites.net/api';
+const baseURL = 'https://localhost:7112/api';
 var savedUsers = new Array();
 
 function AddUser(user) {
@@ -8,6 +9,7 @@ function AddUser(user) {
 
 function LoadUsersFromStorage() {
 	savedUsers = JSON.parse(window.sessionStorage.getItem("users"));
+	
 }
 function SaveUsersToStorage() {
 	window.sessionStorage.setItem("users", JSON.stringify(savedUsers));
