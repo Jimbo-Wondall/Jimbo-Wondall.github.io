@@ -15,6 +15,11 @@
       href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css"
       rel="stylesheet"
     />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+    />
+    <link rel="stylesheet" href="css/style.css" />
     <script>
       function gtag() {
         dataLayer.push(arguments);
@@ -24,20 +29,15 @@
         gtag("config", "UA-108415987-1");
     </script>
   </head>
+
   <body>
-    <div class="navbar">
-      <div class="container flex">
-        <h1 class="logo">Jack Swain</h1>
-        <nav>
-          <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="projects.html">Projects</a></li>
-            <li><a href="contact.html">Contact</a></li>
-            <li><a href="map.html">Map</a></li>
-          </ul>
-        </nav>
-      </div>
-    </div>
+    <div id="nav-placeholder"></div>
+    <script src="//code.jquery.com/jquery.min.js"></script>
+    <script>
+      $.get("nav.html", function (data) {
+        $("#nav-placeholder").replaceWith(data);
+      });
+    </script>
 
     <div class="tab-container">
       <div class="row">
