@@ -43,22 +43,24 @@
       <div class="row">
         <div class="col-md-2">
           <ul class="tab-list">
-            <li><a href="#tab1" class="active">Tab 1</a></li>
-            <li><a href="#tab2">Tab 2</a></li>
-            <li><a href="#tab3">Tab 3</a></li>
+            <li><a href="#tab1" class="active">Create</a></li>
+            <li><a href="#tab2">Read</a></li>
+            <li><a href="#tab3">Update</a></li>
+            <li><a href="#tab4">Delete</a></li>
           </ul>
         </div>
         <div class="col-md-6">
           <div id="tab1" class="tab active">
             <h3>Heading<small> Subtext</small></h3>
-            <form class="container">
+            <form class="container" data-page="CreateUser">
               <fieldset class="form-group">
                 <label>Username:</label
                 ><input
                   type="text"
                   placeholder="placeholder"
                   class="form-control"
-                  id="text1"
+                  id="username"
+                  data-value-type="Username"
                   value=""
                 /><small class="form-text text-muted"
                   >We'll never share your email with anyone else.</small
@@ -70,7 +72,8 @@
                   type="text"
                   placeholder="placeholder"
                   class="form-control"
-                  id="text2"
+                  id="email"
+                  data-value-type="Email"
                   value=""
                 /><small class="form-text text-muted"
                   >Password must be at least 8 characters long</small
@@ -78,25 +81,44 @@
               </fieldset>
               <fieldset class="form-group">
                 <label>Permission Level:</label
-                ><select class="form-control custom-select">
-                  <option value="1">Guest</option>
-                  <option value="2">Student</option>
-                  <option value="3">Teacher</option>
-                  <option value="4">Admin</option></select
+                ><select
+                  class="form-control custom-select"
+                  id="permission-level"
+                  data-value-type="Role"
+                >
+                  <option value="Guest">Guest</option>
+                  <option value="Student">Student</option>
+                  <option value="Teacher">Teacher</option>
+                  <option value="Admin">Admin</option></select
                 ><small class="form-text text-muted"
                   >Register your new account</small
                 >
               </fieldset>
               <fieldset class="form-group">
                 <label>Submit request as user:</label
-                ><select class="form-control custom-select">
+                ><select
+                  class="form-control custom-select"
+                  id="selected-user"
+                  data-value-type="apiKey"
+                >
                   <option value="1">JackSwain - Guest</option>
                   <option value="2">JackSwain - Admin</option></select
                 ><small class="form-text text-muted"
                   >Register your new account</small
                 >
               </fieldset>
+              <button class="button" type="submit">Submit</button>
             </form>
+
+            <script>
+              //const formEl = document.querySelector(".container");
+              const button = document.querySelector(".button");
+              button.addEventListener("click", (e) => {
+                e.preventDefault();
+
+                handleForm(e.target.parentNode);
+              });
+            </script>
           </div>
           <div id="tab2" class="tab col-md-6">
             <h2>Tab 2 Content</h2>
