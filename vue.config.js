@@ -1,4 +1,5 @@
 module.exports = {
+    publicPath: '/',
     outputDir: 'dist', // Build output directory
     assetsDir: 'static', // Directory for static assets
     productionSourceMap: false, // Disable source maps in production for smaller builds
