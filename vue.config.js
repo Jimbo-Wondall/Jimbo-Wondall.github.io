@@ -1,5 +1,4 @@
 module.exports = {
-    publicPath: process.env.NODE_ENV === 'production' ? '/your-repo-name/' : '/',
     outputDir: 'dist', // Build output directory
     assetsDir: 'static', // Directory for static assets
     productionSourceMap: false, // Disable source maps in production for smaller builds
