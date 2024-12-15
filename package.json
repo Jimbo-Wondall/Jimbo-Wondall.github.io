@@ -1,0 +1,26 @@
+{
+    "name": "vue-portfolio",
+    "version": "1.0.0",
+    "private": true,
+    "scripts": {
+        "serve": "vue-cli-service serve",
+        "build": "vue-cli-service build",
+        "lint": "vue-cli-service lint",
+        "deploy": "npm run build && gh-pages -d dist"
+    },
+    "dependencies": {
+        "core-js": "^3.32.2",
+        "vue": "^3.4.31",
+        "vue-router": "^4.2.5"
+    },
+    "devDependencies": {
+        "@vue/cli-service": "^5.0.8",
+        "@vue/eslint-config-prettier": "^7.0.0",
+        "gh-pages": "^5.0.0",
+        "eslint": "^8.50.0",
+        "eslint-plugin-vue": "^9.17.0",
+        "sass": "^1.66.1",
+        "sass-loader": "^13.3.2"
+    },
+    "homepage": "https://your-username.github.io/your-repo-name"
+}
