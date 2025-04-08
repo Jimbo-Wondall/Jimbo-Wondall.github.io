@@ -1,39 +1,32 @@
 <template>
-    <nav>
-        <ul>
-            <li><router-link to="/">Home</router-link></li>
-            <li><router-link to="/projects">Projects</router-link></li>
-            <li><router-link to="/apiaccess">API Access</router-link></li>
-            <li><router-link to="/game">Game</router-link></li>
-        </ul>
-    </nav>
+  <div class="navbar">
+    <router-link to="/">Home</router-link>
+    <router-link to="/projects">Projects</router-link>
+    <router-link to="/apiaccess">API Access</router-link>
+    <router-link to="/game">Game</router-link>
+  </div>
 </template>
 
-<style>
-nav {
-    background-color: #2196f3;
-    color: white;
-    padding: 10px;
-}
-
-ul {
-    list-style: none;
-    display: flex;
-    gap: 15px;
-    margin: 0;
-    padding: 0;
-}
-
-li {
-    margin: 0;
+<style scoped>
+.navbar {
+  display: flex;
+  gap: 30px;
+  padding: 10px 20px;
+  background-color: transparent;
+  pointer-events: auto;
+  z-index: 10;
+  justify-content: space-around;
 }
 
 a {
-    color: white;
-    text-decoration: none;
+  color: white;
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: 500;
 }
 
 a:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 </style>
+
