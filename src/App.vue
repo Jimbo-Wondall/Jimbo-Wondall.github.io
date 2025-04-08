@@ -34,10 +34,73 @@ export default {
 }
 
 @font-face {
-    font-family: 'KabisatDemo';
+    font-family: 'Kabisat';
     src: url('@/assets/fonts/Kabisat Demo-ItalicTall.ttf') format('truetype');
     font-style: normal;
     font-weight: normal;
+}
+
+@font-face {
+  font-family: 'Acidic';
+  src: url('@/assets/fonts/Acidic.TTF') format('truetype');
+  font-style: normal;
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: 'Cyrivendell';
+  src: url('@/assets/fonts/Cyrivendell.ttf') format('truetype');
+  font-style: normal;
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: 'DIGIFIT';
+  src: url('@/assets/fonts/DIGIFIT.TTF') format('truetype');
+  font-style: normal;
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: 'Dodopop';
+  src: url('@/assets/fonts/DodopopRegular.otf') format('opentype');
+  font-style: normal;
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: 'FALCON';
+  src: url('@/assets/fonts/FALCON.TTF') format('truetype');
+  font-style: normal;
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: 'HOPALOPE';
+  src: url('@/assets/fonts/HOPALOPE TRIAL.otf') format('opentype');
+  font-style: normal;
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: 'HOPALOPE';
+  src: url('@/assets/fonts/HOPALOPE BUBBLE TRIAL.otf') format('opentype');
+  font-style: bubble;
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: 'Hybrid';
+  src: url('@/assets/fonts/Hybrid_b.ttf') format('truetype');
+  font-style: bold;
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: 'Hybrid';
+  src: url('@/assets/fonts/hybrid_o.ttf') format('truetype');
+  font-style: normal;
+  font-weight: normal;
 }
 
 html, body {
