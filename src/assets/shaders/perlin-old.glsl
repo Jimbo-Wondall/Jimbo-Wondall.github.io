@@ -3,9 +3,9 @@ uniform vec3 iResolution;
 uniform float iTime;
 
 float function(float x) {
-  float bands = 10.0;
-  x = clamp(x, 0.0, 1.0);
-  return floor(x * bands) / (bands - 1.0);
+  x = 1.0 - pow(1.0 - x, 5.0);
+  if (x < 0.5) return 0.0;
+  return 1.0;
 }
 
 vec2 n22(vec2 p) {
@@ -40,23 +40,8 @@ float perlin_noise(vec2 uv, float cells_count) {
   return function(abs((normalized * 2.0) - 1.0));
 }
 
-vec3 palette(float t, vec3 a, vec3 b, vec3 c, vec3 d) {
-  return a + b * cos(6.28318 * (c * t + d));
-}
-
-vec3 animatedPalette(float t, float time) {
-  vec3 a = vec3(0.5);
-  vec3 b = vec3(0.5);
-  vec3 c = vec3(1.0, 1.0, 1.0);
-  vec3 d = vec3(0.0, 0.33, 0.67) + vec3(0.2, 0.3, 0.4) * time * 0.1;
-  return palette(t, a, b, c, d);
-}
-
 void main() {
   vec2 uv = gl_FragCoord.xy / iResolution.y;
   float val = perlin_noise(uv, 10.0);
-  float t = iTime;
-
-  vec3 color = animatedPalette(val, t);
-  gl_FragColor = vec4(color, 1.0);
+  gl_FragColor = vec4(vec3(val), 1.0);
 }
